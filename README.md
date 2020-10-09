@@ -1,4 +1,4 @@
-# FreeCamMod (first version)
+# FreeCamMod (first version) 
 Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
 ### How do I install it?
@@ -35,7 +35,12 @@ It allows the player to use a freecam while in the game ( the cam still doen't w
 
 - The player will *slide* in the ground if the player was in the air when activating the camera. 
 
-- Pressing **Esc** would open the settings menu normaly, but if you are in the free cam it won't apear, so press **CapsLock** again to go back to it. The game will freese in that state, so it's a good way to take pictures while everything is static.
+- Pressing **Esc** would open the settings menu normaly, but if you are in the free cam it won't apear, so press **CapsLock** again to go back to it. The game will freeze in that state, but not **you** *(ZA WARUDO)*, so it's a good way to take pictures while everything is static.
 
-- The camera might appear to be going up or down sometimes, that's is caused by the rotation of the planets.
+- The camera might appear to be going up or down sometimes, that is caused by the rotation of the planets.
+  
+ ## Credits
+  - Thanks [ioncodes](https://github.com/ioncodes) for creating [dnpatch](https://github.com/ioncodes/dnpatch)
+  - And thanks [Raicuparta](https://github.com/Raicuparta), [Mister_Nebula](https://github.com/misternebula), [AmazingAlek](https://github.com/amazingalek) and [TAImatem](https://github.com/TAImatem) for creating [OWML](https://github.com/amazingalek/owml) which inspired me to create my own for the Alpha 
+  
   
