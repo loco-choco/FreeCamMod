@@ -1,5 +1,5 @@
-# ProbeGrapleMod (first version)
-Mod for the Alpha Outer Wilds version 1.2 that adds a graple rope to the game
+# FreeCamMod (first version)
+Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
 ### How do I install it?
 
@@ -7,30 +7,35 @@ Mod for the Alpha Outer Wilds version 1.2 that adds a graple rope to the game
 
 2. Place all the files from that directory in `OuterWilds_Alpha_1_2_Data\Managed`
 
-3. ####  IMPORTANT  Make a backup of the file `Assembly-CSharp.dll` and store somewhere else (it's good to rename it to something like "Assembly-CSharp-original.dll"), because the mod (for now) cannot remove it self from that dll 
+3. Run the executable `FreeCamModInstaller`, it will check if the mod hasn't been already installed, and if not, will ask you if you want to do so. If no error occures it means that the mod has been succesfully installed and there will be a new file called `Assembly-CSharp-ModLoaded.dll`
 
-4. Run the executable `GrappleModInstaller` **only once** , if no error occure it means that the mod has been succesfully installed and there will be a new file called `Assembly-CSharp-ModLoaded.dll` (After that there is no problem in deleting either `GrappleModInstaller.exe`,`dnlib.dll` or `dnpatch.dll` from the game's folder)
+4. Rename this new file to `Assembly-CSharp.dll` (The reason to why it doesn't change the original file is so that a backup can be made even after using the executable)
 
-5. Remember that I asked to backup `Assembly-CSharp.dll`? Now you have to delete it and rename the file `Assembly-CSharp-ModLoaded.dll` to `Assembly-CSharp.dll`
-
-6. Run the game! 
+5. Run the game! 
 
 ### How do I uninstall it?
 
-Simple, you just need to delete the modded `Assembly-CSharp.dll` (and,if you wish, all the other files that you placed from `Mod Instaling Kit` ), replace it with the backup you made when installing it and raname the file back to `Assembly-CSharp.dll`
+Run the executable `FreeCamModInstaller`, it will check if the mod has been already installed, and if so, will ask you if you want to uninstall it. If no error occures it means that the mod has been succesfully uninstalled and the file `Assembly-CSharp.dll` will have been modified to get rid of the mod. After that, excluding any file from the directory `Mod Instaling Kit` won't cause any harm.
 
 ### What it does?
 
-It gives the player a new equipment to use: a *grappling rope*, it acts like a long rubber band and can have its size increased and decreased
+It allows the player to use a freecam while in the game ( the cam still doen't work )
 
 ### How do I use it?
 
-Here is what each button does:
+1. Press **CapsLock**, it will activate the camera
 
-  **G** - Places the rope anchor at any aiming surface (you can be at max. 2 m away from it) | Retreives the anchor
-  
-  **T** - Makes the rope longer: at each quarter of a second that the button is held, it has an increase of  25 cm
-  
-  **Y** - Same as the **T** button, but it decreases the rope size (untill it reaches 75 cm)
+2. Use **WASD** to move and **TAB** to go faster
 
+3. Press **CapsLock** again if you want to go back to the player's camera
+
+### Things to keep in mind
+
+- There could be some bugs, so please send a *issue* about what you find in this repo.
+
+- The player will *slide* in the ground if the player was in the air when activating the camera. 
+
+- Pressing **Esc** would open the settings menu normaly, but if you are in the free cam it won't apear, so press **CapsLock** again to go back to it. The game will freese in that state, so it's a good way to take pictures while everything is static.
+
+- The camera might appear to be going up or down sometimes, that's is caused by the rotation of the planets.
   
