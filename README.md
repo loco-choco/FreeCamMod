@@ -19,7 +19,7 @@ Run the executable `FreeCamModInstaller`, it will check if the mod has been alre
 
 ### What it does?
 
-It allows the player to use a freecam while in the game ( the cam still doen't work )
+It allows the player to use a freecam while in the game ( the cam still doesn't work in the main menu )
 
 ### How do I use it?
 
