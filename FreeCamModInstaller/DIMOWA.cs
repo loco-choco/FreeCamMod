@@ -173,7 +173,8 @@ namespace IMOWA
                 }
                 modPatcher.RemoveInstruction(modInnitTarget);
 
-            modPatcher.Save("Assembly-CSharp-ModUnloaded.dll");
+            //Não precisa de backup, né?
+            modPatcher.Save(false);
 
                 return 0;
             

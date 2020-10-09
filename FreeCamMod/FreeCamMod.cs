@@ -21,7 +21,9 @@ namespace FCM
 
         private bool rotateWithTheCamera = true;
 
-        
+        private float timeWhenFreezed = 0f;
+
+
         public static void  ModInnit(string porOndeTaInicializando)
         {
             
@@ -63,11 +65,7 @@ namespace FCM
         void Update()
         {
 
-            //Para ele não ficar "deslizando" pelo chão
-            if (playerTransform.gameObject.GetComponent<CharacterMovementModel>().IsGrounded() && IsFreeCamEnable())
-            {
-                playerTransform.gameObject.GetComponent<CharacterMovementModel>().LockMovement();
-            }
+            
 
             if (Input.GetKeyDown(KeyCode.CapsLock))
             {
@@ -127,12 +125,21 @@ namespace FCM
 
 
                 //Direção q a camera vai virar
-                freeCamRotationAround += PlayerCameraInput.lookX.GetInput() * Time.deltaTime * 500f%360;
-                freeCamRotationX -= PlayerCameraInput.lookY.GetInput() * Time.deltaTime * 500f;
-                
+
+                if (Time.timeScale != 0)
+                {
+                    freeCamRotationAround += PlayerCameraInput.lookX.GetInput() * Time.deltaTime * 500f % 360;
+                    freeCamRotationX -= PlayerCameraInput.lookY.GetInput() * Time.deltaTime * 500f;
+                }
+                else
+                {
+
+                    freeCamRotationAround += PlayerCameraInput.lookX.GetInput() * DeltaTimeWhenFreezed() * 500f % 360;
+                    freeCamRotationX -= PlayerCameraInput.lookY.GetInput() * DeltaTimeWhenFreezed() * 500f;
+                }
 
                 
-                
+
 
                 freeCamRotationX = Mathf.Clamp(freeCamRotationX, -90f, 90f);
 
@@ -149,23 +156,34 @@ namespace FCM
                 //Direção q a camera vai andar
                 freeCamObject.transform.position = currentCameraTransform.position;
 
-                if (Input.GetKey(KeyCode.W))
-                    freeCamPosition += freeCamObject.transform.forward * cameraSpeed * Time.deltaTime;
+                //ZA WARUDO
+                float variacaoDoTempo;
+
+                if (Time.timeScale != 0)
+                    variacaoDoTempo = Time.deltaTime;
+                else
+                    variacaoDoTempo = DeltaTimeWhenFreezed();
+
+
+                    if (Input.GetKey(KeyCode.W))
+                    freeCamPosition += freeCamObject.transform.forward * cameraSpeed * variacaoDoTempo;
 
                 if (Input.GetKey(KeyCode.S))
-                    freeCamPosition += -freeCamObject.transform.forward * cameraSpeed * Time.deltaTime;
+                    freeCamPosition += -freeCamObject.transform.forward * cameraSpeed * variacaoDoTempo;
 
                 if (Input.GetKey(KeyCode.D))
-                    freeCamPosition += freeCamObject.transform.right * cameraSpeed * Time.deltaTime;
+                    freeCamPosition += freeCamObject.transform.right * cameraSpeed * variacaoDoTempo;
 
                 if (Input.GetKey(KeyCode.A))
-                    freeCamPosition += -freeCamObject.transform.right * cameraSpeed * Time.deltaTime;
+                    freeCamPosition += -freeCamObject.transform.right * cameraSpeed * variacaoDoTempo;
 
                 freeCamObject.transform.position += freeCamPosition;
                 //Fazer com q isso sempre esteja uma unidade afrente da camera principal
 
                 playerLockingViewOn.transform.position = currentCameraTransform.position + currentCameraTransform.forward;
 
+                //Ver qual foi o tempo desse frame
+                timeWhenFreezed = Time.realtimeSinceStartup;
 
 
             }
@@ -173,7 +191,11 @@ namespace FCM
         }
 
         
-        
+        //ZA WARUDO
+        float DeltaTimeWhenFreezed()
+        {
+            return Time.realtimeSinceStartup - timeWhenFreezed;
+        }
 
         bool IsFreeCamEnable()
         {
