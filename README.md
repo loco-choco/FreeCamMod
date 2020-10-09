@@ -15,7 +15,7 @@ Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
 ### How do I uninstall it?
 
-Run the executable `FreeCamModInstaller`, it will check if the mod has been already installed, and if so, will ask you if you want to uninstall it. If no error occures it means that the mod has been succesfully uninstalled and the file `Assembly-CSharp.dll` will have been modified to get rid of the mod. After that, excluding any file from the directory `Mod Instaling Kit` won't cause any harm.
+Run the executable `FreeCamModInstaller`, it will check if the mod has been already installed, and if so, will ask you if you want to uninstall it. If no error occures it means that the mod has been succesfully uninstalled and the file `Assembly-CSharp.dll` will have been modified to get rid of the mod. After that, excluding any file that came from the directory `Mod Instaling Kit` won't cause any harm.
 
 ### What it does?
 
