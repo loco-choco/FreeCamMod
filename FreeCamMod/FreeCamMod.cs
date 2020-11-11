@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using IMOWAAnotations;
 
 namespace FCM
 {
@@ -24,6 +24,7 @@ namespace FCM
         private float timeWhenFreezed = 0f;
 
 
+        [IMOWAModInnit("Marshmallow", "Start", modName = "EnchacedMallows")]
         public static void  ModInnit(string porOndeTaInicializando)
         {
             
