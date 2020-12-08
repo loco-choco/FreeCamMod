@@ -1,21 +1,16 @@
-# FreeCamMod (first version) 
+# Free Cam Mod v.1.0.0
 Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
 ### How do I install it?
 
-1. Download the repo. and open the directory `Mod Instaling Kit`
-
-2. Place all the files from that directory in `OuterWilds_Alpha_1_2_Data\Managed`
-
-3. Run the executable `FreeCamModInstaller`, it will check if the mod hasn't been already installed, and if not, will ask you if you want to do so. If no error occures it means that the mod has been succesfully installed and there will be a new file called `Assembly-CSharp-ModLoaded.dll`
-
-4. Rename this new file to `Assembly-CSharp.dll` (The reason to why it doesn't change the original file is so that a backup can be made even after using the executable)
-
-5. Run the game! 
+0. Follow instalation of [DIMOWA](https://github.com/ShoosGun/DIMOWA) if you haven't already. 
+1. Download the dll from one of the [releases](https://github.com/ShoosGun/FreeCamMod/releases).
+2. Place the dll from the mod in the `mods` folder.
+3. Run the installer.
 
 ### How do I uninstall it?
 
-Run the executable `FreeCamModInstaller`, it will check if the mod has been already installed, and if so, will ask you if you want to uninstall it. If no error occures it means that the mod has been succesfully uninstalled and the file `Assembly-CSharp.dll` will have been modified to get rid of the mod. After that, excluding any file that came from the directory `Mod Instaling Kit` won't cause any harm.
+Using [DIMOWA](https://github.com/ShoosGun/DIMOWA), select the uninstall option.
 
 ### What it does?
 
