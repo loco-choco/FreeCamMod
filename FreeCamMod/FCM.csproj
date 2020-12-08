@@ -7,7 +7,7 @@
     <ProjectGuid>{03E38356-FFE8-4FCE-BAA5-C09D4E2183E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FreeCamMod</RootNamespace>
+    <RootNamespace>FCM</RootNamespace>
     <AssemblyName>FreeCamMod</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -29,17 +29,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FreeCamMod.cs" />
+    <Compile Include="LevelLoaderHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\OuterWilds Alpha 1_2\OuterWilds_Alpha_1_2_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="IMOWAAnotations">
-      <HintPath>..\..\DIMOWA\Instalador\IMOWAAnotations.dll</HintPath>
+    <Reference Include="CAMOWA">
+      <HintPath>..\..\DIMOWA\Instalador\CAMOWA.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
