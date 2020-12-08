@@ -24,7 +24,7 @@ It allows the player to use a freecam while in the game ( now work in the Main M
 
 3. Press **CapsLock** again if you want to go back to the player's camera
 
-4. Press **Z** to freeze time when the camera is on
+* Press **Z** to freeze time when the camera is on
 
 ### Things to keep in mind
 
