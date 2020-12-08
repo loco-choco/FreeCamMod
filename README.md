@@ -1,12 +1,12 @@
-# Free Cam Mod v.1.0.0
+# Free Cam Mod v.1.0.1
 Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
 ### How do I install it?
 
 0. Follow instalation of [DIMOWA](https://github.com/ShoosGun/DIMOWA) if you haven't already. 
-1. Download the dll from one of the [releases](https://github.com/ShoosGun/FreeCamMod/releases).
+1. Download the dll from the latest [release](https://github.com/ShoosGun/FreeCamMod/releases).
 2. Place the dll from the mod in the `mods` folder.
-3. Run the installer.
+3. Run DIMOWA.
 
 ### How do I uninstall it?
 
@@ -14,7 +14,7 @@ Using [DIMOWA](https://github.com/ShoosGun/DIMOWA), select the uninstall option.
 
 ### What it does?
 
-It allows the player to use a freecam while in the game ( the cam still doesn't work in the main menu )
+It allows the player to use a freecam while in the game ( now work in the Main Menu! )
 
 ### How do I use it?
 
@@ -24,13 +24,13 @@ It allows the player to use a freecam while in the game ( the cam still doesn't 
 
 3. Press **CapsLock** again if you want to go back to the player's camera
 
+4. Press **Z** to freeze time when the camera is on
+
 ### Things to keep in mind
 
 - There could be some bugs, so please send a *issue* about what you find in this repo.
 
 - The player will *slide* in the ground if the player was in the air when activating the camera. 
-
-- Pressing **Esc** would open the settings menu normaly, but if you are in the free cam it won't apear, so press **CapsLock** again to go back to it. The game will freeze in that state, but not **you** *(ZA WARUDO)*, so it's a good way to take pictures while everything is static.
 
 - The camera might appear to be going up or down sometimes, that is caused by the rotation of the planets.
   
