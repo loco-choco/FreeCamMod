@@ -30,7 +30,7 @@ It allows the player to use a freecam while in the game ( now work in the Main M
 
 - There could be some bugs, so please send a *issue* about what you find in this repo.
 
-- The player will *slide* in the ground if the player was in the air when activating the camera. 
+- The player will *slide* on the ground if the player was in the air when activating the camera. 
 
 - The camera might appear to be going up or down sometimes, that is caused by the rotation of the planets.
   
