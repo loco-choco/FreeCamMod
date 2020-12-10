@@ -73,6 +73,7 @@ namespace FCM
                     {
                         Debug.Log("Congelando o mov. do player");
                         playerTransform.gameObject.GetComponent<CharacterMovementModel>().LockMovement();
+                        GlobalMessenger<Camera>.FireEvent("SwitchActiveCamera", gameObject.camera);
                         playerCamController.LockOn(playerLockingViewOn.transform);
                     }
                     Debug.Log("Coisas magicas");
@@ -88,6 +89,7 @@ namespace FCM
                     {
                         Debug.Log("Descongelando o mov. do player");
                         playerTransform.gameObject.GetComponent<CharacterMovementModel>().UnlockMovement();
+                        GlobalMessenger<Camera>.FireEvent("SwitchActiveCamera", currentCameraTransform.camera);
                         playerCamController.BreakLock();
                     }
                     Debug.Log("Mais coisas magicas");
