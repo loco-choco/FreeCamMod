@@ -114,7 +114,7 @@ namespace FCM
                         Time.timeScale = 1f;
                 }
                 //Cuidar da aceleração e veloc. da camera
-                if (Input.GetKey(KeyCode.Tab))
+                if (Input.GetKey(KeyCode.Tab) || Input.GetKey(KeyCode.JoystickButton8))
                     cameraSpeed = 9f;
                 else
                     cameraSpeed = 3f;
@@ -147,19 +147,24 @@ namespace FCM
                 if (Time.timeScale != 0)
                     variacaoDoTempo = Time.deltaTime;
                 else
+                {
                     variacaoDoTempo = DeltaTimeWhenFreezed();
+                    if (Input.GetKey(KeyCode.W))
+                        freeCamPosition += gameObject.transform.forward * cameraSpeed * variacaoDoTempo;
 
-                if (Input.GetKey(KeyCode.W))
-                    freeCamPosition += gameObject.transform.forward * cameraSpeed * variacaoDoTempo;
+                    if (Input.GetKey(KeyCode.S))
+                        freeCamPosition += -gameObject.transform.forward * cameraSpeed * variacaoDoTempo;
 
-                if (Input.GetKey(KeyCode.S))
-                    freeCamPosition += -gameObject.transform.forward * cameraSpeed * variacaoDoTempo;
+                    if (Input.GetKey(KeyCode.D))
+                        freeCamPosition += gameObject.transform.right * cameraSpeed * variacaoDoTempo;
 
-                if (Input.GetKey(KeyCode.D))
-                    freeCamPosition += gameObject.transform.right * cameraSpeed * variacaoDoTempo;
-
-                if (Input.GetKey(KeyCode.A))
-                    freeCamPosition += -gameObject.transform.right * cameraSpeed * variacaoDoTempo;
+                    if (Input.GetKey(KeyCode.A))
+                        freeCamPosition += -gameObject.transform.right * cameraSpeed * variacaoDoTempo;
+                }
+                
+               
+                freeCamPosition += (gameObject.transform.forward * InputChannels.moveZ.GetAxis() + gameObject.transform.right * InputChannels.moveX.GetAxis()) * cameraSpeed * variacaoDoTempo;
+                
 
                 gameObject.transform.position += freeCamPosition;
                 //Fazer com q isso sempre esteja uma unidade afrente da camera principal
