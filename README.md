@@ -20,15 +20,18 @@ It allows the player to use a freecam while in the game ( now work in the Main M
 
 1. Press **CapsLock**, it will activate the camera
 
-2. Use **WASD** to move and **TAB** to go faster
+2. Use **WASD** to move and **TAB** to go faster (when time is frozen)
 
 3. Press **CapsLock** again if you want to go back to the player's camera
 
 * Press **Z** to freeze time when the camera is on
 
+* See the description of this [release]((https://github.com/ShoosGun/FreeCamMod/releases/tag/v.1.0.1.2)) to see how you can use a xbox controller with it
+
+
 ### Things to keep in mind
 
-- There could be some bugs, so please send a *issue* about what you find in this repo.
+- There could be some bugs, so please send a [issue](https://github.com/ShoosGun/FreeCamMod/issues/new) about what you found.
 
 - The player will *slide* on the ground if the player was in the air when activating the camera. 
 
