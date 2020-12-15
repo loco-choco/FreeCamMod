@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using CAMOWA;
+using DIMOWAModLoader;
+using System;
 
 namespace FCM
 {
 
     public class FreeCamMod : MonoBehaviour
     {
+        private ClientDebuggerSide debugger;
+
         public bool isThereAPlayer = false;
 
         private float freeCamRotationX = 0f;
@@ -31,7 +35,10 @@ namespace FCM
         }
         void Start()
         {
-            Debug.Log("No start, bora-lá");
+            debugger = GameObject.Find("DIMOWALevelLoaderHandler").GetComponent<ClientDebuggerSide>();
+
+            debugger.SendLog("No start, bora-la",DebugType.LOG,LogingType.SEND_AND_LOG);
+            //Debug.Log("No start, bora-lá");
             var possiblePlayerArray = (PlayerBody[])FindObjectsOfType(typeof(PlayerBody));
             if (possiblePlayerArray.Length > 0)
             {
@@ -57,26 +64,22 @@ namespace FCM
 
         float cameraSpeed = 3f;
 
+       
+
         void Update()
         {
-           
-            //Quando ele carrega outro cenário, e bagulho não restarta o script, isso é um certo problema
-            //Talvez colocar algum int, e quando carregar mudar o valor do int para indicar em qual está, e ai fazer as correções
-            //Ta tarde, boa sorte na prova amanhã ;;)
-
-
-            if (Input.GetKeyDown(KeyCode.CapsLock))
+            if (Input.GetKeyDown(KeyCode.CapsLock) || OWInput.GetAxisPressed(PlayerCameraInput.toggleFlashlight, -1))
             {
                 if (!IsFreeCamEnable())
                 {
                     if (isThereAPlayer)
                     {
-                        Debug.Log("Congelando o mov. do player");
+                        debugger.SendLog("Congelando o mov. do player", DebugType.LOG, LogingType.SEND_AND_LOG);
                         playerTransform.gameObject.GetComponent<CharacterMovementModel>().LockMovement();
                         GlobalMessenger<Camera>.FireEvent("SwitchActiveCamera", gameObject.camera);
                         playerCamController.LockOn(playerLockingViewOn.transform);
                     }
-                    Debug.Log("Coisas magicas");
+                    debugger.SendLog("Coisas Magicas", DebugType.UNKNOWN, LogingType.SEND_AND_LOG);
                     currentCameraTransform.camera.enabled = false;
                     gameObject.camera.enabled = true;
                 }
@@ -87,12 +90,12 @@ namespace FCM
 
                     if (isThereAPlayer)
                     {
-                        Debug.Log("Descongelando o mov. do player");
+                        debugger.SendLog("Descongelando o mov. do player", DebugType.LOG, LogingType.SEND_AND_LOG);
                         playerTransform.gameObject.GetComponent<CharacterMovementModel>().UnlockMovement();
                         GlobalMessenger<Camera>.FireEvent("SwitchActiveCamera", currentCameraTransform.camera);
                         playerCamController.BreakLock();
                     }
-                    Debug.Log("Mais coisas magicas");
+                    debugger.SendLog("Mais coisas magicas", DebugType.UNKNOWN, LogingType.SEND_AND_LOG);
                     currentCameraTransform.camera.enabled = true;
                     gameObject.camera.enabled = false;
 
@@ -104,7 +107,7 @@ namespace FCM
             }
             if (IsFreeCamEnable())
             {
-                if (Input.GetKeyDown(KeyCode.Z))
+                if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.JoystickButton8))
                 {
                     if (Time.timeScale != 0) //Se o timeScale já não é zero, fazer ele virar zero
                     {
@@ -114,7 +117,7 @@ namespace FCM
                         Time.timeScale = 1f;
                 }
                 //Cuidar da aceleração e veloc. da camera
-                if (Input.GetKey(KeyCode.Tab) || Input.GetKey(KeyCode.JoystickButton8))
+                if (Input.GetKey(KeyCode.Tab))
                     cameraSpeed = 9f;
                 else
                     cameraSpeed = 3f;
@@ -140,8 +143,7 @@ namespace FCM
                 
                 //Direção q a camera vai andar
                 gameObject.transform.position = currentCameraTransform.position;
-
-                //ZA WARUDO
+                
                 float variacaoDoTempo;
 
                 if (Time.timeScale != 0)
@@ -163,7 +165,7 @@ namespace FCM
                 }
                 
                
-                freeCamPosition += (gameObject.transform.forward * InputChannels.moveZ.GetAxis() + gameObject.transform.right * InputChannels.moveX.GetAxis()) * cameraSpeed * variacaoDoTempo;
+                freeCamPosition += (gameObject.transform.forward * InputChannels.moveZ.GetAxis() + gameObject.transform.right * InputChannels.moveX.GetAxis()) * 9 * variacaoDoTempo;
                 
 
                 gameObject.transform.position += freeCamPosition;
