@@ -27,6 +27,15 @@ It allows the player to use a freecam while in the game.
 
 * Press **Q** to freeze time when the camera is on
 
+### Special Controls
+| Key Name | What it does     | Default keyboard key |
+|--------------|-----------|------------|
+| Swap Yaw for Roll | Makes you rool instead of yaw when held | ALT |
+| Cancel | Switches between frozen time and non frozen | Q |
+| Jump | Accelerates the Camera when held| SPACE |
+| Flashlight | Changes the Acceleration type, from 100% -> 300% -> 900% -> 2000% -> 50% -> 25% ... | F |
+| TargetReferenceFrame | Makes the camera follow the target object | Left Click (when with suit) |
+
 
 ### Things to keep in mind
 
