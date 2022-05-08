@@ -3,11 +3,11 @@ Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
 ### How do I install it?
 
-0.1. Install BepInEx.
-0.2. Install CAMOWA.
-1. Download the dll from the latest [release](https://github.com/ShoosGun/FreeCamMod/releases).
-2. Place the dll from the mod in the `plugins` folder.
-3. Run the Game.
+0. Install BepInEx.
+1. Install CAMOWA.
+2. Download the dll from the latest [release](https://github.com/ShoosGun/FreeCamMod/releases).
+3. Place the dll from the mod in the `plugins` folder.
+4. Run the Game.
 
 ### How do I uninstall it?
 
