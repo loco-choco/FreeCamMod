@@ -1,4 +1,4 @@
-# Free Cam Mod v.1.1
+# Free Cam Mod v.1.1.1
 Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
 ### How do I install it?
