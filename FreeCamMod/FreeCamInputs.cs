@@ -16,6 +16,7 @@ namespace FCM
 
         public static readonly Button PararTempo = new Button(InputChannels.cancel);
         public static readonly Button AcelerarCamera = new Button(InputChannels.jump);
+        public static readonly Button MudarAcelercaoDaCamera = new Button(InputChannels.flashlight);
 
         private static HashSet<InputCommand> freeCamInputs;
 
@@ -34,6 +35,9 @@ namespace FCM
 
                 PararTempo,
                 AcelerarCamera,
+                MudarAcelercaoDaCamera,
+
+                ReferenceFrameInput.targetReferenceFrame
             };
 
             GlobalMessenger.AddListener("EnterFreeCamMode", OnEnterFreeCamMode);

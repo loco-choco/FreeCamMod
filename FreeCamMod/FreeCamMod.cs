@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using BepInEx;
 using CAMOWA;
+using System;
 
 namespace FCM
 {
-    [BepInPlugin("Locochoco.OWA.FreeCamMod","Free Cam Mod","1.1")]
+    [BepInPlugin("Locochoco.OWA.FreeCamMod","Free Cam Mod","1.1.1")]
     [BepInProcess("OuterWilds_Alpha_1_2.exe")]
     public class FreeCamMod : BaseUnityPlugin
     {
@@ -22,6 +23,22 @@ namespace FCM
             FreeCamInputs.InnitFreeCamInputs();
             CreateFreeCam(0);
             SceneLoading.OnSceneLoad += SceneLoading_OnSceneLoad;
+
+
+            GlobalMessenger<ReferenceFrame>.AddListener("TargetReferenceFrame", OnTargetReferenceFrame);
+            GlobalMessenger.AddListener("UntargetReferenceFrame", OnUntargetReferenceFrame);
+        }
+
+        private void OnUntargetReferenceFrame()
+        {
+            if(freeCamTransform != null)
+                freeCamTransform.parent = null;
+        }
+
+        private void OnTargetReferenceFrame(ReferenceFrame referenceFrame)
+        {
+            if (freeCamTransform != null)
+                freeCamTransform.parent = referenceFrame.GetOWRigidBody().transform;
         }
 
         private void CreateFreeCam(int sceneID) 
@@ -47,8 +64,8 @@ namespace FCM
             if (isTimeFreezed)
                 Time.timeScale = 1f;
         }
-
-        float cameraSpeed = 3f;
+        CameraSpeeds cameraSpeed;
+        const float DefaultCameraSpeed = 3f;        
 
         void Update()
         {
@@ -113,10 +130,14 @@ namespace FCM
                 else
                     rotationInput = new Vector3(-OWInput.GetAxis(FreeCamInputs.RodarNaVertical), OWInput.GetAxis(FreeCamInputs.RolarOuRodarNaHorizontal), 0f);
 
+                if (OWInput.GetButtonUp(FreeCamInputs.MudarAcelercaoDaCamera))
+                    cameraSpeed = (CameraSpeeds)(((int)cameraSpeed + 1) % (int)CameraSpeeds.CameraSpeeds_Size);
+
+                float cameraVelocity = DefaultCameraSpeed;
+
                 if (OWInput.GetButton(FreeCamInputs.AcelerarCamera))
-                    cameraSpeed = 9f;
-                else
-                    cameraSpeed = 3f;
+                    cameraVelocity *= GetCameraSpeed(cameraSpeed);
+                
 
                 freeCamTransform.localRotation *=  Quaternion.Euler(rotationInput * 500f * deltaTime);
 
@@ -124,7 +145,7 @@ namespace FCM
                 if(Time.timeScale == 0f)
                     positionInput = InputChannels.moveZ.GetAxisRaw() * freeCamTransform.forward + InputChannels.moveX.GetAxisRaw() * freeCamTransform.right + (InputChannels.moveUp.GetAxisRaw() - InputChannels.moveDown.GetAxisRaw()) * freeCamTransform.up;
 
-                freeCamTransform.position += positionInput * cameraSpeed * deltaTime;
+                freeCamTransform.position += positionInput * cameraVelocity * deltaTime;
 
                 timeWhenFreezed = Time.realtimeSinceStartup;
             }
@@ -139,6 +160,38 @@ namespace FCM
         bool IsFreeCamEnable()
         {
             return freeCamTransform.camera.enabled;
+        }
+
+        enum CameraSpeeds : int
+        {
+            ONE_HUNDRED,
+            THREE_HUNDRED,
+            NINE_HUNDRED,
+            TWENTY_HUNDRED,
+            FIFTY,
+            ONE_QUARTER,
+            CameraSpeeds_Size
+        }
+
+        private float GetCameraSpeed(CameraSpeeds speed) 
+        {
+            switch (speed)
+            {
+                case CameraSpeeds.ONE_HUNDRED:
+                    return 1f;
+                case CameraSpeeds.THREE_HUNDRED:
+                    return 2f;
+                case CameraSpeeds.NINE_HUNDRED:
+                    return 9f;
+                case CameraSpeeds.TWENTY_HUNDRED:
+                    return 20f;
+                case CameraSpeeds.FIFTY:
+                    return 0.5f;
+                case CameraSpeeds.ONE_QUARTER:
+                    return 0.25f;
+                default:
+                    return 1f;
+            }
         }
 
     } 
