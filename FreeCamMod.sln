@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1231
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMOWA", "FreeCamModInstaller\IMOWA.csproj", "{D76AA204-1265-4785-A4AE-0EA9CAAFA1EE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FCM", "FreeCamMod\FCM.csproj", "{03E38356-FFE8-4FCE-BAA5-C09D4E2183E7}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D76AA204-1265-4785-A4AE-0EA9CAAFA1EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D76AA204-1265-4785-A4AE-0EA9CAAFA1EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D76AA204-1265-4785-A4AE-0EA9CAAFA1EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D76AA204-1265-4785-A4AE-0EA9CAAFA1EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03E38356-FFE8-4FCE-BAA5-C09D4E2183E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03E38356-FFE8-4FCE-BAA5-C09D4E2183E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03E38356-FFE8-4FCE-BAA5-C09D4E2183E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
