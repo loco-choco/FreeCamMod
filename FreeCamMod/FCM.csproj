@@ -9,6 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FCM</RootNamespace>
     <AssemblyName>FreeCamMod</AssemblyName>
+    <ModName>Locochoco.FreeCamMod</ModName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -52,5 +53,21 @@
       <HintPath>..\..\OuterWilds_Alpha_1_2_PC\OuterWilds_Alpha_1_2_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo ‎
+echo         Transferring files to $(ProjectDir)$(ModName)‎
+md "$(ProjectDir)$(ModName)\"
+copy /y "$(ProjectDir)manifest.json" "$(ProjectDir)$(ModName)\"
+copy /y "$(TargetPath)" "$(ProjectDir)$(ModName)\"
+del /q "$(ProjectDir)..\$(ModName).zip"
+powershell Compress-Archive "$(ProjectDir)$(ModName)" "$(ProjectDir)..\$(ModName).zip"
+rmdir /Q /S "$(ProjectDir)$(ModName)\"
+echo ‎‎</PostBuildEvent>
+  </PropertyGroup>
 </Project>
