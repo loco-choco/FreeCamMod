@@ -5,6 +5,7 @@ using System;
 
 namespace FCM
 {
+    [BepInDependency("locochoco.plugins.CAMOWA", BepInDependency.DependencyFlags.HardDependency)]
     [BepInPlugin("Locochoco.OWA.FreeCamMod","Free Cam Mod","1.1.1")]
     [BepInProcess("OuterWilds_Alpha_1_2.exe")]
     public class FreeCamMod : BaseUnityPlugin
