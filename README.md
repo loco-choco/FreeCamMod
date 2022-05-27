@@ -1,18 +1,6 @@
 # Free Cam Mod v.1.1.1
 Mod for the Alpha Outer Wilds version 1.2 that adds a free cam to the game
 
-### How do I install it?
-
-0. Install BepInEx.
-1. Install CAMOWA.
-2. Download the dll from the latest [release](https://github.com/ShoosGun/FreeCamMod/releases).
-3. Place the dll from the mod in the `plugins` folder.
-4. Run the Game.
-
-### How do I uninstall it?
-
-Remove the dll from the `plugins` folder.
-
 ### What it does?
 
 It allows the player to use a freecam while in the game.
@@ -42,6 +30,24 @@ It allows the player to use a freecam while in the game.
 - There could be some bugs, so please send a [issue](https://github.com/ShoosGun/FreeCamMod/issues/new) about what you found.
 
 - The camera might appear to be going up or down sometimes, that is caused by the rotation of the planets.
+  
+--------
+## Instructions if you are not using OWMM
+
+### How do I install it?
+
+0. Install BepInEx.
+1. Install CAMOWA.
+2. Download the dll from the latest [release](https://github.com/ShoosGun/FreeCamMod/releases).
+3. Place the dll from the mod in the `plugins` folder.
+4. Run the Game.
+
+### How do I uninstall it?
+
+Remove the dll from the `plugins` folder.
+
+--------
+
   
  ## Credits
   - Thanks [ioncodes](https://github.com/ioncodes) for creating [dnpatch](https://github.com/ioncodes/dnpatch)
