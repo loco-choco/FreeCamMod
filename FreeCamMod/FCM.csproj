@@ -38,19 +38,50 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\OuterWilds_Alpha_1_2_PC\OuterWilds_Alpha_1_2_Data\Managed\Assembly-CSharp.dll</HintPath>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\Assembly-CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="BepInEx">
-      <HintPath>..\..\OuterWilds_Alpha_1_2_PC\BepInEx\core\BepInEx.dll</HintPath>
+    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="CAMOWA">
-      <HintPath>..\..\OuterWilds_Alpha_1_2_PC\BepInEx\plugins\CAMOWA-v1_0\CAMOWA\CAMOWA.dll</HintPath>
+    <Reference Include="Assembly-UnityScript, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\Assembly-UnityScript.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx, Version=5.4.19.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BepInEx.BaseLib.5.4.19\lib\net35\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Boo.Lang, Version=2.0.9.5, Culture=neutral, PublicKeyToken=32c39770e9a21a67, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\Boo.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="CAMOWA, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CAMOWA\bin\Release\CAMOWA.dll</HintPath>
+    </Reference>
+    <Reference Include="DecalSystem.Runtime, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\DecalSystem.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=2.0.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\System.Xml.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\OuterWilds_Alpha_1_2_PC\OuterWilds_Alpha_1_2_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityScript.Lang, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OuterWildsAlphaGameLibs.1.2.0\lib\UnityScript.Lang.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

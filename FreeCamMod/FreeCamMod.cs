@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using BepInEx;
 using CAMOWA;
-using System;
 
 namespace FCM
 {
@@ -23,7 +22,6 @@ namespace FCM
             FreeCamInputs.InnitFreeCamInputs();
             CreateFreeCam(0);
             SceneLoading.OnSceneLoad += SceneLoading_OnSceneLoad;
-
 
             GlobalMessenger<ReferenceFrame>.AddListener("TargetReferenceFrame", OnTargetReferenceFrame);
             GlobalMessenger.AddListener("UntargetReferenceFrame", OnUntargetReferenceFrame);
@@ -51,9 +49,9 @@ namespace FCM
                 currentCameraTransform = ((Camera)FindObjectOfType(typeof(Camera))).transform;
             var freeCamGO = new GameObject("FreeCam");
             freeCamTransform = freeCamGO.transform;
-            freeCamGO.AddComponent<Camera>();
-            freeCamGO.camera.enabled = false;
-            freeCamGO.camera.CopyFrom(currentCameraTransform.camera);
+            Camera cam = freeCamGO.AddComponent<Camera>();
+            cam.enabled = false;
+            cam.CopyFrom(currentCameraTransform.GetComponent<Camera>());
         }
 
         private void SceneLoading_OnSceneLoad(int sceneId)
@@ -137,7 +135,6 @@ namespace FCM
 
                 if (OWInput.GetButton(FreeCamInputs.AcelerarCamera))
                     cameraVelocity *= GetCameraSpeed(cameraSpeed);
-                
 
                 freeCamTransform.localRotation *=  Quaternion.Euler(rotationInput * 500f * deltaTime);
 
@@ -151,7 +148,6 @@ namespace FCM
             }
 
         }
-        //ZA WARUDO
         float DeltaTimeWhenFreezed()
         {
             return Time.realtimeSinceStartup - timeWhenFreezed;
@@ -159,7 +155,10 @@ namespace FCM
 
         bool IsFreeCamEnable()
         {
-            return freeCamTransform.camera.enabled;
+            if(freeCamTransform == null)
+                return false;
+
+            return freeCamTransform.GetComponent<Camera>().enabled;
         }
 
         enum CameraSpeeds : int
