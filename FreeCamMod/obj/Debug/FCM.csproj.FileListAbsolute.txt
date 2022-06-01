@@ -28,3 +28,4 @@ C:\Users\Pichau\Desktop\programas\FreeCamMod\FreeCamMod\bin\Debug\Assembly-Unity
 C:\Users\Pichau\Desktop\programas\FreeCamMod\FreeCamMod\bin\Debug\BepInEx.dll
 C:\Users\Pichau\Desktop\programas\FreeCamMod\FreeCamMod\bin\Debug\CAMOWA.pdb
 C:\Users\Pichau\Desktop\programas\FreeCamMod\FreeCamMod\bin\Debug\CAMOWA.dll.config
+C:\Users\Pichau\Desktop\programas\FreeCamMod\FreeCamMod\bin\Debug\manifest.json

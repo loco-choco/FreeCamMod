@@ -5,7 +5,7 @@ using CAMOWA;
 namespace FCM
 {
     [BepInDependency("locochoco.plugins.CAMOWA", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInPlugin("Locochoco.OWA.FreeCamMod","Free Cam Mod","1.1.1")]
+    [BepInPlugin("Locochoco.OWA.FreeCamMod","Free Cam Mod","1.1.3")]
     [BepInProcess("OuterWilds_Alpha_1_2.exe")]
     public class FreeCamMod : BaseUnityPlugin
     {
@@ -74,7 +74,7 @@ namespace FCM
             else
                 deltaTime = DeltaTimeWhenFreezed();
 
-            if (OWInput.GetAxisReleased(PlayerCameraInput.toggleFlashlight, -1) || Input.GetKeyUp(KeyCode.CapsLock))
+            if ((OWInput.GetAxisReleased(PlayerCameraInput.toggleFlashlight, -1) || Input.GetKeyUp(KeyCode.CapsLock)) && CanFreeCamBeEnabled())
             {
                 if (!IsFreeCamEnable())
                 {
@@ -154,6 +154,10 @@ namespace FCM
             return Time.realtimeSinceStartup - timeWhenFreezed;
         }
 
+        bool CanFreeCamBeEnabled() 
+        {
+            return freeCamTransform != null;
+        }
         bool IsFreeCamEnable()
         {
             if(freeCamTransform == null)
